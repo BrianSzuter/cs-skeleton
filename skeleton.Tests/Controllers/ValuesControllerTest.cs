@@ -1,19 +1,18 @@
-﻿using System;
+﻿using FrontEnd.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
-using System.Web.Http;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using FrontEnd;
-using FrontEnd.Controllers;
+using System.Threading.Tasks;
+using Xunit;
 
-namespace cs_skeleton.Tests.Controllers
+// Useful bootstrapping info re: xunit can be found here: http://xunit.github.io/docs/getting-started-desktop.html
+
+namespace skeleton.Tests
 {
-    [TestClass]
     public class ValuesControllerTest
     {
-        [TestMethod]
+        [Fact]
         public void Get()
         {
             // Arrange
@@ -23,13 +22,13 @@ namespace cs_skeleton.Tests.Controllers
             IEnumerable<string> result = controller.Get();
 
             // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(2, result.Count());
-            Assert.AreEqual("value1", result.ElementAt(0));
-            Assert.AreEqual("value2", result.ElementAt(1));
+            Assert.NotNull(result);
+            Assert.Equal(2, result.Count());
+            Assert.Equal("value1", result.ElementAt(0));
+            Assert.Equal("value2", result.ElementAt(1));
         }
 
-        [TestMethod]
+        [Fact]
         public void GetById()
         {
             // Arrange
@@ -39,10 +38,10 @@ namespace cs_skeleton.Tests.Controllers
             string result = controller.Get(5);
 
             // Assert
-            Assert.AreEqual("value", result);
+            Assert.Equal("value", result);
         }
 
-        [TestMethod]
+        [Fact]
         public void Post()
         {
             // Arrange
@@ -54,7 +53,7 @@ namespace cs_skeleton.Tests.Controllers
             // Assert
         }
 
-        [TestMethod]
+        [Fact]
         public void Put()
         {
             // Arrange
@@ -66,7 +65,7 @@ namespace cs_skeleton.Tests.Controllers
             // Assert
         }
 
-        [TestMethod]
+        [Fact]
         public void Delete()
         {
             // Arrange
@@ -77,5 +76,6 @@ namespace cs_skeleton.Tests.Controllers
 
             // Assert
         }
+
     }
 }
